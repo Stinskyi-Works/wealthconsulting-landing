@@ -1,0 +1,22 @@
+#modal-offer {
+  width: 100%;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .wrapper {
+    flex: 1;
+    background-color: rgba(0,0,0,0.9);
+  }
+
+  .container {
+    flex: 1;
+  }
+
+  .content {
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+  }
+}

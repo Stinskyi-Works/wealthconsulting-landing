@@ -1,0 +1,34 @@
+#modal-mobile-menu {
+  background-color: transparent;
+  width: 100%;
+  color: white;
+  transform: translateY(40px);
+
+  ul.links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 150px;
+
+    li.menu-link {
+      opacity: 0;
+      margin: 20px;
+      transform: translateX(-40px);
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 100;
+      font-size: 16px;
+      line-height: 30px;
+      text-transform: capitalize;
+      color: #FFFFFF;
+    }
+  }
+
+  .call-btn {
+    opacity: 0;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+  }
+}

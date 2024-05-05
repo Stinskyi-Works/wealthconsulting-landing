@@ -1,0 +1,116 @@
+@import 'mixins';
+
+.aboutus {
+  .content {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .cards {
+    width: 100%;
+    height: auto;
+    // border: 1px solid blue;
+    display: flex;
+    // grid-template-columns: 1fr 1fr 1fr;
+    // grid-template-rows: 1fr 1fr;
+    // grid-gap: 32px;
+    // overflow: visible;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    // gap: 32px;
+    overflow: visible;
+
+    // &::before {
+    //   content: '';
+    //   width: 0;
+    //   padding-bottom: 100%;
+    //   grid-row: 1 / 1;
+    //   grid-column: 1 / 1;
+    // }
+    
+    // & > *:first-child{
+    //   grid-row: 1 / 1;
+    //   grid-column: 1 / 1;
+  // }
+    .card-container {
+      display: 'inline-block';
+      margin-right: 32px;
+    }
+
+    .card {
+      min-width: 300px;
+      height: 300px;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      position: relative;
+      // overflow: hidden;
+
+      .overlay {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background: rgba(21, 21, 21, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 10px;
+        @include backdrop-blur(1.25px);
+        padding: 16px;
+        position: absolute;
+        z-index: 50;
+
+        .overlay-content {
+          display: none;
+          opacity: 0;
+          flex-direction: column;
+        }
+      }
+
+      .title {
+        font-family: 'Playfair Display';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+      }
+
+      .role, .description {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 100;
+        font-size: 9px;
+        color: #FFFFFF;
+      }
+      .role {
+        width: 100%;
+        text-align: center;
+        font-weight: 275;
+        margin-top: 4px;
+      }
+
+      .img {
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center bottom;
+      }
+
+      .person1 {
+        background-image: url('../assets/img/aboutus-person1.jpg');
+      }
+
+      @for $i from 2 through 6 {
+        .person#{$i} {
+          background-image: url('../assets/img/aboutus-person#{$i}.png');
+        }
+     }
+    }
+  }
+}

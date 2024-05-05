@@ -1,0 +1,35 @@
+@mixin gold() {
+  background: -moz-linear-gradient(90deg, rgba(184, 138, 68, 1) 0%, rgba(224, 170, 62, 1) 30%, rgba(224, 170, 62, 1) 71%, rgba(249, 242, 149, 1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(184, 138, 68, 1) 0%, rgba(224, 170, 62, 1) 30%, rgba(224, 170, 62, 1) 71%, rgba(249, 242, 149, 1) 100%);
+  background: linear-gradient(90deg, rgba(184, 138, 68, 1) 0%, rgba(224, 170, 62, 1) 30%, rgba(224, 170, 62, 1) 71%, rgba(249, 242, 149, 1) 100%);
+}
+
+@mixin sectionHeader() {
+  background: -moz-linear-gradient(90deg, rgba(114, 111, 104, 0.18) 0%, rgba(25, 25, 25, 0.69) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(114, 111, 104, 0.18) 0%, rgba(25, 25, 25, 0.69)  100%);
+  background: linear-gradient(90deg, rgba(114, 111, 104, 0.18) 0%, rgba(25, 25, 25, 0.69)  100%);
+}
+
+@mixin backdrop-blur($range) {
+  -webkit-backdrop-filter: blur($range);
+  -moz-backdrop-filter: blur($range);
+  -ms-backdrop-filter: blur($range);
+  -o-backdrop-filter: blur($range);    
+  backdrop-filter: blur($range);
+}
+
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}

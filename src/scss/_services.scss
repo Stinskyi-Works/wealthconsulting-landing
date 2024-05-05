@@ -1,0 +1,643 @@
+@import 'mixins';
+
+.services {
+  .content {
+    @include for-phone-only {
+      padding: 0px;
+      padding-bottom: 64px;
+    }
+    @include for-tablet-portrait-up {
+      padding: 32px;
+      padding-bottom: 64px;
+    }
+    @include for-tablet-landscape-up {
+      padding-left: 64px;
+      padding-right: 64px;
+    }
+    @include for-desktop-up {
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+  }
+
+  .cards {
+    border: 0.5px solid rgba(255, 255, 255, 0.18);
+    width: 100%;
+    padding: 16px;
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+
+    hr {
+      background-color: transparent;
+      width: 100%;
+      height: 0px;
+      border: none;
+      border-bottom: 0.5px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .cards-wrapper {
+      display: grid;
+      overflow: visible;
+      padding-left: 16px;
+      padding-right: 16px;
+
+      @include for-phone-only {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        padding-top: 16px;
+        grid-gap: 16px;
+      }
+      @include for-tablet-portrait-up {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        padding-top: 16px;
+        grid-gap: 16px;
+      }
+      @include for-tablet-landscape-up {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        padding-top: 32px;
+        grid-gap: 32px;
+      }
+      @include for-desktop-up {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        padding-top: 32px;
+        grid-gap: 32px;
+      }
+      @include for-big-desktop-up {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        padding-top: 32px;
+        grid-gap: 32px;
+      }
+
+      &::before {
+        content: '';
+        width: 0;
+        padding-bottom: 100%;
+        grid-row: 1 / 1;
+        grid-column: 1 / 1;
+      }
+      
+      & > *:first-child{
+        grid-row: 1 / 1;
+        grid-column: 1 / 1;
+      }
+
+      .card-wrapper {
+        position: relative;
+      }
+
+      .card {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        border: 0.5px solid rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        overflow: visible;
+        z-index: 50;
+        position: absolute;
+
+        .overlay {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          min-height: 40%;
+          background: rgba(21, 21, 21, 0.4);
+          border: 1px solid rgba(255, 255, 255, 0.25);
+          @include backdrop-blur(1.25px);
+          padding: 16px;
+          border-radius: 10px;
+          position: absolute;
+        }
+
+        .card-title, .card-title-small {
+          font-family: 'Playfair Display';
+          font-style: normal;
+          font-weight: 400;
+          text-align: center;
+          text-transform: uppercase;
+          color: #FAFAFA;
+          text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+          @include for-phone-only {
+            font-size: 18px;
+          }
+          @include for-tablet-portrait-up {
+            font-size: 18px;
+          }
+          @include for-tablet-landscape-up {
+            font-size: 18px;
+          }
+          @include for-desktop-up {
+            font-size: 24px;
+          }
+          @include for-big-desktop-up {
+            font-size: 24px;
+          }
+        }
+
+        .card-title-small {
+          font-size: 18px;
+        }
+
+        .card-content {
+          display: none;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          opacity: 0;
+
+          .card-link-button4 {
+            opacity: 0;
+            margin-top: 16px;
+          }
+        }
+      }
+
+      .card-background {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        transition: transform 0.3s;
+      }
+
+      .card1 {
+        background-image: url('../assets/img/services-card-1.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .card2 {
+        background-image: url('../assets/img/services-card-2.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .card3 {
+        background-image: url('../assets/img/services-card-3.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .card4 {
+        background-image: url('../assets/img/services-card-4.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+
+    .card-zero {
+      width: 100%;
+      height: 280px;
+      background-image: url('../assets/img/services-card-0.webp');
+      background-repeat: no-repeat;
+      background-position: center 25%;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 10px;
+      border: 0.5px solid rgba(221, 221, 221, 0.8);
+      position: relative;
+      
+      .title {
+        align-self: stretch;
+        font-family: 'Playfair Display';
+        font-style: normal;
+        font-weight: 400;
+        line-height: 60px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        @include for-phone-only {
+          padding-left: auto;
+          text-align: center;
+          font-size: 18px;
+        }
+        @include for-tablet-portrait-up {
+          padding-left: auto;
+          text-align: center;
+          font-size: 18px;
+        }
+        @include for-tablet-landscape-up {
+          padding-left: 16px;
+          text-align: left;
+          font-size: 18px;
+        }
+        @include for-desktop-up {
+          padding-left: 32px;
+          font-size: 24px;
+        }
+        @include for-big-desktop-up {
+          padding-left: 32px;
+          font-size: 24px;
+        }
+      }
+
+      .role {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 275;
+        font-size: 24px;
+        text-align: center;
+        text-transform: capitalize;
+        color: #FFFFFF;
+        margin-bottom: 16px;
+
+        @include for-phone-only {
+          font-size: 18px;
+        }
+        @include for-tablet-portrait-up {
+          font-size: 18px;
+        }
+        @include for-tablet-landscape-up {
+          font-size: 18px;
+        }
+        @include for-desktop-up {
+          font-size: 24px;
+        }
+        @include for-big-desktop-up {
+          font-size: 24px;
+        }
+      }
+      
+      .overlay {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        height: 60px;
+        overflow: visible;
+        width: 100%;
+        min-height: 60px;
+        background: rgba(21, 21, 21, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        @include backdrop-blur(1.25px);
+        border-radius: 10px;
+        align-self: flex-start;
+        z-index: 50;
+
+        .overlay-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          min-height: 280px;
+        }
+
+        .row {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          flex: 1;
+
+          @include for-phone-only {
+            flex-direction: column;
+          }
+          @include for-tablet-portrait-up {
+            flex-direction: column;
+          }
+          @include for-tablet-landscape-up {
+            flex-direction: row;
+          }
+          @include for-desktop-up {
+            flex-direction: row;
+          }
+          @include for-big-desktop-up {
+            flex-direction: row;
+          }
+
+          .left {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+            display: none;
+            opacity: 0;
+
+            @include for-phone-only {
+              padding: 16px;
+            }
+            @include for-tablet-portrait-up {
+              padding: 16px;
+            }
+            @include for-tablet-landscape-up {
+              padding: 32px;
+            }
+            @include for-desktop-up {
+              padding: 32px;
+            }
+            @include for-big-desktop-up {
+              padding: 32px;
+            }
+
+            ul {
+              display: grid;
+
+              @include for-phone-only {
+                grid-template-columns: 1fr;
+                grid-gap: 4px;
+              }
+              @include for-tablet-portrait-up {
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 16px;
+              }
+              @include for-tablet-landscape-up {
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 16px;
+              }
+              @include for-desktop-up {
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-gap: 16px;
+              }
+              @include for-big-desktop-up {
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-gap: 16px;
+              }
+
+              li {
+                margin-top: 0px;
+
+                @include for-phone-only {
+                  font-size: 16px;
+                  font-weight: 275;
+                }
+                @include for-tablet-portrait-up {
+                  font-size: 16px;
+                  font-weight: 100;
+                }
+                @include for-tablet-landscape-up {
+                  font-size: 16px;
+                }
+                @include for-desktop-up {
+                  font-size: 20px;
+                }
+                @include for-big-desktop-up {
+                  font-size: 20px;
+                }
+              }
+            }
+          }
+  
+          .right {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            @include for-phone-only {
+              justify-content: flex-start;
+              align-items: center;
+              padding: 16px;
+            }
+            @include for-tablet-portrait-up {
+              justify-content: flex-start;
+              align-items: center;
+              padding: 16px;
+            }
+            @include for-tablet-landscape-up {
+              justify-content: flex-end;
+              align-items: flex-end;
+              padding: 32px;
+            }
+            @include for-desktop-up {
+              justify-content: flex-end;
+              align-items: flex-end;
+              padding: 32px;
+            }
+            @include for-big-desktop-up {
+              justify-content: flex-end;
+              align-items: flex-end;
+              padding: 32px;
+            }
+          }
+        }
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
+
+      &.extra {
+        li {
+          text-align: center;
+        }
+      }
+
+      li {
+        display: flex;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-size: 13px;
+        color: #FFFFFF;
+        margin-top: 8px;
+        position: relative;
+        flex-direction: row;
+        align-items: center;
+
+        @include for-phone-only {
+          font-weight: 275;
+        }
+        @include for-tablet-portrait-up {
+          font-weight: 100;
+        }
+
+        .icon {
+          width: 8px;
+          height: 8px;
+          min-width: 8px;
+          margin-right: 8px;
+          background-image: url('../assets/img/mark.png');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
+        .icon-spacer {
+          width: 16px;
+        }
+      }
+    }
+  }
+
+  .table {
+    height: auto;
+    display: grid;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin-bottom: 64px;
+
+    @include for-phone-only {
+      width: 100%;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-gap: 16px;
+    }
+    @include for-tablet-portrait-up {
+      width: 100%;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-gap: 16px;
+    }
+    @include for-tablet-landscape-up {
+      width: 100%;
+      max-width: 1000px;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-gap: 0px;
+    }
+    @include for-desktop-up {
+      width: 100%;
+      max-width: 1000px;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-gap: 0px;
+    }
+    @include for-big-desktop-up {
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .section {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.2);
+      border: 1px solid transparent;
+      padding-top: 24px;
+      padding-bottom: 24px;
+      transition: all 0.3s;
+
+      @include for-phone-only {
+        border-radius: 10px;
+
+        &:hover {
+          transform: none;
+          border: 1px solid #FDDCA0;
+          transition: border-color 0.3s;
+        }
+      }
+      @include for-tablet-portrait-up {
+        border-radius: 10px;
+
+        &:hover {
+          transform: none;
+          border: 1px solid #FDDCA0;
+          transition: border-color 0.3s;
+        }
+      }
+      @include for-tablet-landscape-up {
+        border-radius: 0px;
+
+        &:hover {
+          transform: translateY(16px);
+          transition: transform 0.3s;
+          border-color: transparent;
+        }
+
+        &:first-of-type {
+          border-top-left-radius: 22px;
+          border-bottom-left-radius: 22px;
+          border-right: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        &:last-of-type {
+          border-top-right-radius: 22px;
+          border-bottom-right-radius: 22px;
+          border-left: 1px solid rgba(255, 255, 255, 0.18);
+        }
+      }
+
+      .title {
+        font-family: 'Playfair Display SC';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        margin-bottom: 16px;
+      }
+
+      hr {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+
+        @include for-phone-only {
+          display: none;
+        }
+        @include for-tablet-portrait-up {
+          display: none;
+        }
+        @include for-tablet-landscape-up {
+          display: block;
+        }
+      }
+
+      .icon {
+        margin-top: 16px;
+        margin-bottom: 16px;
+
+        @include for-phone-only {
+          display: none;
+        }
+        @include for-tablet-portrait-up {
+          display: none;
+        }
+        @include for-tablet-landscape-up {
+          display: block;
+        }
+      }
+
+      .row {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .description {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 100;
+        font-size: 14px;
+        text-align: center;
+        color: #FFFFFF;
+        padding-left: 32px;
+        padding-right: 32px;
+
+        @include for-phone-only {
+          font-weight: 275;
+        }
+        @include for-tablet-portrait-up {
+          font-weight: 100;
+        }
+      }
+    }
+  }
+
+  .button-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}

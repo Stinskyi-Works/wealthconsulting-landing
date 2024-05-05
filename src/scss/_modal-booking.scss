@@ -1,0 +1,67 @@
+#modal-booking {
+  width: 100%;
+  padding: 0px;
+
+  .wrapper {
+    flex: 1;
+    background-color: white;
+  }
+
+  .container {
+    flex: 1;
+  }
+
+  .content {
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .overlay {
+      width: 50%;
+      height: 50%;
+      background-image: url('../assets/img/logo.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      filter: brightness(0) saturate(100%) invert(88%) sepia(53%) saturate(12%) hue-rotate(88deg) brightness(113%) contrast(92%);
+      z-index: 50;
+    }
+
+    iframe {
+      z-index: 54;
+    }
+  }
+
+  ul.links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 150px;
+
+    li.menu-link {
+      opacity: 0;
+      margin: 20px;
+      transform: translateX(-40px);
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 200;
+      font-size: 20px;
+      line-height: 30px;
+      text-transform: uppercase;
+      color: #FFFFFF;
+    }
+  }
+
+  .call-btn {
+    opacity: 0;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+  }
+}

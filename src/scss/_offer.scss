@@ -1,0 +1,83 @@
+@import 'mixins';
+
+.offer {
+  margin-bottom: 64px;
+
+  @include for-phone-only {
+    margin-bottom: 32px;
+  }
+
+  .content {
+    @include for-phone-only {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+  .card {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    flex-direction: column;
+    padding: 32px;
+    border-radius: 10px;
+    background-image: url("../assets/img/offer-bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 0.5px solid transparent;
+    transition: border 0.3s;
+
+    &:hover {
+      border: 0.5px solid #FDDCA0;
+      transition: border 0.3s;
+    }
+
+    .title {
+      font-family: 'Playfair Display';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 40px;
+      align-items: center;
+      text-transform: uppercase;
+      color: #C7C7C7;
+      text-align: center;
+
+      @include for-phone-only {
+        font-size: 24px;
+      }
+      @include for-tablet-portrait-up {
+        font-size: 32px;
+      }
+      @include for-tablet-landscape-up {
+        font-size: 40px;
+      }
+      @include for-desktop-up {
+        font-size: 40px;
+      }
+      @include for-big-desktop-up {
+        font-size: 40px;
+      }
+    }
+
+    .description {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.84);
+      text-align: center;
+      margin-bottom: 56px;
+      margin-top: 16px;
+
+      @include for-phone-only {
+        font-weight: 275;
+      }
+      @include for-tablet-portrait-up {
+        font-weight: 100;
+      }
+    }
+  }
+}

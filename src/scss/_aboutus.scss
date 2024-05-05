@@ -1,0 +1,200 @@
+@import 'mixins';
+
+.aboutus {
+  .content {
+    @include for-phone-only {
+      padding-top: 32px;
+      padding-bottom: 64px;
+    }
+    @include for-tablet-portrait-up {
+      padding-top: 32px;
+      padding-bottom: 64px;
+    }
+    @include for-tablet-landscape-up {
+      padding-top: 32px;
+      padding-bottom: 64px;
+    }
+    @include for-desktop-up {
+      padding-top: 32px;
+      padding-bottom: 64px;
+    }
+    @include for-big-desktop-up {
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    @include for-phone-only {
+      padding: 20px 0px;
+      margin-top: 32px;
+    }
+    @include for-tablet-portrait-up {
+      padding: 20px 0px;
+      margin-top: 32px;
+    }
+    @include for-tablet-landscape-up {
+      padding: 20px 0px;
+      margin-top: 32px;
+    }
+    @include for-desktop-up {
+      padding: 20px 0px;
+      margin-top: 64px;
+    }
+    @include for-big-desktop-up {
+      padding: 20px 0px;
+      margin-top: 64px;
+    }
+  }
+
+  .cards {
+    height: auto;
+    display: grid;
+
+    @include for-phone-only {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-gap: 16px;
+      padding-left: 0px;
+      padding-right: 0px;
+      width: 100%;
+    }
+    @include for-tablet-portrait-up {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-gap: 16px;
+      padding-left: 0px;
+      padding-right: 0px;
+      width: 100%;
+    }
+    @include for-tablet-landscape-up {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      padding-left: 0px;
+      padding-right: 0px;
+      grid-gap: 32px;
+      width: 100%;
+    }
+    @include for-desktop-up {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-gap: 32px;
+      width: 80%;
+    }
+    @include for-big-desktop-up {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-gap: 32px;
+      width: 100%;
+      border: none;
+    }
+
+    &::before {
+      content: '';
+      width: 0;
+      padding-bottom: 100%;
+      grid-row: 1 / 1;
+      grid-column: 1 / 1;
+    }
+    
+    & > *:first-child{
+      grid-row: 1 / 1;
+      grid-column: 1 / 1;
+    }
+    .card-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .card {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #111111;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      position: relative;
+      // border: 0.5px solid rgba(255, 255, 255, 0.4);
+      overflow: hidden;
+      z-index: 50;
+
+      .overlay {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background: rgba(21, 21, 21, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 10px;
+        @include backdrop-blur(1.25px);
+        padding: 16px;
+        position: absolute;
+        z-index: 50;
+
+        .overlay-content {
+          display: none;
+          opacity: 0;
+          flex-direction: column;
+        }
+      }
+
+      .title {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .role, .description {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 275;
+        font-size: 12px;
+        color: #FFFFFF;
+      }
+      .role {
+        width: 100%;
+        text-align: center;
+        font-weight: 275;
+        margin-top: 4px;
+        margin-bottom: 16px;
+      }
+
+      .img {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center bottom;
+        border-radius: 10px;
+      }
+
+      .person1 {
+        background-image: url('../assets/img/aboutus-person1.jpg');
+      }
+
+      @for $i from 2 through 6 {
+        .person#{$i} {
+          background-image: url('../assets/img/aboutus-person#{$i}.png');
+        }
+     }
+    }
+  }
+}

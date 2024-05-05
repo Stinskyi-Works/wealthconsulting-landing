@@ -1,0 +1,147 @@
+@import 'mixins';
+
+.qna {
+  margin-bottom: 64px;
+
+  @include for-phone-only {
+    margin-bottom: 32px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 8px;
+    padding-top: 32px;
+
+    @include for-phone-only {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+
+  .accordion {
+    width: 100%;
+
+    .head {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.3s;
+      border-radius: 10px;
+
+      @include for-phone-only {
+        padding: 16px 32px;
+        border-radius: 0px;
+      }
+      @include for-tablet-portrait-up {
+        padding: 16px 32px;
+        border-radius: 10;
+      }
+      @include for-tablet-landscape-up {
+        padding: 16px 32px;
+      }
+      @include for-desktop-up {
+        padding: 16px 56px;
+      }
+      @include for-big-desktop-up {
+        padding: 16px 56px;
+      }
+
+      &:hover {
+        transition: color 0.3s;
+
+        .title {
+          color: #B39864;
+        }
+
+        .icon {
+          filter: brightness(0) saturate(100%) invert(72%) sepia(9%) saturate(1481%) hue-rotate(1deg) brightness(83%) contrast(91%);
+        }
+      }
+
+      .icon {
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        background-image: url('../assets/img/qna-arrow.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        @include for-phone-only {
+          margin-right: 16px;
+        }
+        @include for-tablet-portrait-up {
+          margin-right: 16px;
+        }
+        @include for-tablet-landscape-up {
+          margin-right: 32px;
+        }
+        @include for-desktop-up {
+          margin-right: 32px;
+        }
+        @include for-big-desktop-up {
+          margin-right: 32px;
+        }
+      }
+
+      .title {
+        display: flex;
+        flex: 1;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-size: 18px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+
+        @include for-phone-only {
+          font-weight: 275;
+        }
+        @include for-tablet-portrait-up {
+          font-weight: 100;
+        }
+      }
+    }
+
+    .body {
+      background-color: #2C2C2C;
+      margin: 0px 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+
+      @include for-phone-only {
+        margin: 0px;
+      }
+      
+      .text {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-size: 16px;
+        color: #FFFFFF;
+
+        @include for-phone-only {
+          padding: 16px 32px;
+          font-weight: 275;
+        }
+        @include for-tablet-portrait-up {
+          padding: 16px 32px;
+          font-weight: 100;
+        }
+        @include for-tablet-landscape-up {
+          padding: 16px 32px;
+        }
+        @include for-desktop-up {
+          padding: 32px 64px;
+        }
+        @include for-big-desktop-up {
+          padding: 32px 64px;
+        }
+      }
+    }
+  } 
+}

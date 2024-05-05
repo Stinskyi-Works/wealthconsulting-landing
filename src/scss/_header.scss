@@ -1,0 +1,126 @@
+@import 'mixins';
+
+header {
+  width: 100%;
+  background-color: transparent;
+  color: white;
+  position: absolute;
+  z-index: 100;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  .modal {
+    display: flex;
+    flex: 1;
+    height: 100%;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+
+    .logo {
+      margin-right: auto;
+      margin-left: 0px;
+      z-index: 120;
+    }
+  }
+
+  .large-content {
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+
+    @include for-phone-only {
+      display: none;
+    }
+    @include for-tablet-portrait-up {
+      display: none;
+    }
+    @include for-tablet-landscape-up {
+      display: flex;
+    }
+
+    ul.links {
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      justify-content: flex-end;
+  
+      li > a {
+        margin: 20px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 100;
+        font-style: normal;
+        font-size: 16px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+      }
+    }
+  }
+
+  #menu-btn {
+    z-index: 120;
+
+    @include for-phone-only {
+      display: block;
+    }
+    @include for-tablet-portrait-up {
+      display: block;
+    }
+    @include for-tablet-landscape-up {
+      display: none;
+    }
+
+    .menu-icon {
+      width: 40px;
+      height: 40px;
+
+      .top-line,
+      .bottom-line,
+      .middle-line {
+        transform-box: fill-box;
+        transform-origin: center;
+        transition: all 0.3s;
+      }
+    }
+    .active {
+      .top-line {
+        transform: translateY(10px) translateX(2px) rotate(45deg);
+      }
+      .bottom-line {
+        transform: translateY(-10px) translateX(2px) rotate(-45deg);
+      }
+      .middle-line {
+        opacity: 0;
+      }
+    }
+  }
+
+  .call-btn {
+    background-color: transparent;
+    outline: none;
+    background: rgba(185, 159, 159, 0.16);
+    border: 1px solid #B39864;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 275;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+    padding: 6px 18px;
+    margin-left: 32px;
+    opacity: 1;
+
+    &:hover {
+      background-color: #B39864;
+    }
+  } 
+}
